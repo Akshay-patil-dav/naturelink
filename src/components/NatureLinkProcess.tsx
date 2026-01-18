@@ -1,5 +1,4 @@
 
-import React from "react";
 import farmersourcing from "../assets/images/farmer-sourcing.jpg";
 import traditionalroasting from "../assets/images/traditional-roasting.jpg";
 import coldpressed from "../assets/images/cold-pressed.jpg";
