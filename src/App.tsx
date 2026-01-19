@@ -8,13 +8,15 @@ import NatureLinkProcess from './components/NatureLinkProcess.tsx'
 import Footer from './components/Footer.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductPage from './components/pages/product/ProductPage.tsx'
+import { ProductGrid } from './components/pages/product/ProductGrid.tsx'
 
 
 export  function Homepage() {
   return (
     <>
      <Medicineheader />
-      <NatureLinkProcess /> 
+       {/* <PageHeader title={'Product Page '} subtitle={'Buy product now '} /> */}
+           <ProductGrid />
     </>
   );
 }
