@@ -18,7 +18,7 @@ export  function Homepage() {
   );
 }
 
-export function Product() {
+export function ProductPage() {
   return (
     <>
       <Medicineheader />
@@ -43,7 +43,7 @@ function App() {
            {/* Routes */}
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<ProductPage />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
      </BrowserRouter>
