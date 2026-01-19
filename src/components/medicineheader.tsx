@@ -7,7 +7,7 @@ import logo from './logo/logo.png';
 
 // Navigation items configuration
 const navItems = [
-  { id: "peanut-nav-home", label: "Home", href: "#home", isActive: true },
+  { id: "peanut-nav-home", label: "Home", href: "/", isActive: true },
   {
     id: "peanut-nav-services",
     label: "Services",
@@ -21,7 +21,7 @@ const navItems = [
     ],
   },
   { id: "peanut-nav-about", label: "About Us", href: "#about" },
-  { id: "peanut-nav-products", label: "Products", href: "#products" },
+  { id: "peanut-nav-products", label: "Products", href: "product" },
   { id: "peanut-nav-testimonials", label: "Testimonials", href: "#testimonials" },
   { id: "peanut-nav-blog", label: "Health Blog", href: "#blog" },
   { id: "peanut-nav-contact", label: "Contact", href: "#contact" },

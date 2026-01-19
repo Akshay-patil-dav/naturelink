@@ -1,0 +1,672 @@
+/* ========================================
+   PEANUT OIL THEME - BOOTSTRAP VERSION
+   Pure CSS with Bootstrap - No Tailwind
+   ======================================== */
+
+
+/* Import Bootstrap */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   CSS VARIABLES - PEANUT OIL THEME & SHADCN/UI
+   ======================================== */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Shadcn/ui Default Colors */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Primary Peanut Oil Colors (These take precedence) */
+  --peanut-golden: #d4a853;
+  --peanut-amber: #c8943a;
+  --peanut-cream: #faf6ed;
+  --peanut-brown: #5c4a2a;
+  --peanut-light: #f5ead6;
+  --peanut-dark: #3d3220;
+  
+  /* Supporting Colors (These take precedence) */
+  --peanut-success: #28a745;
+  --peanut-danger: #dc3545;
+  --peanut-muted: #8b7b5e;
+  --peanut-border: #e8dcc4;
+  --peanut-shadow: rgba(92, 74, 42, 0.1);
+  --peanut-shadow-hover: rgba(92, 74, 42, 0.2);
+}
+ 
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground; /* Shadcn/ui base background/text */
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Peanut oil theme specific colors, will override shadcn/ui defaults */
+    background: linear-gradient(180deg, var(--peanut-cream) 0%, #ffffff 100%);
+    color: var(--peanut-brown);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+#peanut-main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   PAGE HEADER STYLES
+   ======================================== */
+#peanut-page-header {
+  background: linear-gradient(135deg, var(--peanut-amber) 0%, var(--peanut-golden) 100%);
+  padding: 3rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#peanut-page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.peanut-header-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.peanut-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.peanut-logo-icon {
+  font-size: 2.5rem;
+  color: var(--peanut-cream);
+}
+
+.peanut-brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--peanut-cream);
+  margin: 0;
+}
+
+#peanut-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--peanut-cream);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.peanut-subtitle {
+  font-size: 1.125rem;
+  color: var(--peanut-light);
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* ========================================
+   PRODUCT SECTION
+   ======================================== */
+#peanut-products-section {
+  padding: 3rem 0;
+  flex: 1;
+}
+
+.peanut-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+#peanut-section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--peanut-brown);
+  margin-bottom: 0.75rem;
+}
+
+.peanut-section-description {
+  font-size: 1rem;
+  color: var(--peanut-muted);
+  max-width: 500px;
+  margin: 0 auto 1rem;
+}
+
+#peanut-cart-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--peanut-golden);
+  color: var(--peanut-cream);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.peanut-cart-count {
+  background: var(--peanut-cream);
+  color: var(--peanut-amber);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   PRODUCT CARD STYLES
+   ======================================== */
+.peanut-product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--peanut-shadow);
+  border: 1px solid var(--peanut-border);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.peanut-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px var(--peanut-shadow-hover);
+}
+
+/* Image Wrapper */
+.peanut-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: var(--peanut-light);
+}
+
+.peanut-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.peanut-product-card:hover .peanut-product-image {
+  transform: scale(1.08);
+}
+
+.peanut-discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--peanut-danger);
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.peanut-category-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--peanut-amber);
+  color: var(--peanut-cream);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Product Info */
+.peanut-product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.peanut-product-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.peanut-product-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--peanut-brown);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.peanut-product-bio {
+  font-size: 0.875rem;
+  color: var(--peanut-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Rating */
+.peanut-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.peanut-stars-wrapper {
+  display: flex;
+  gap: 2px;
+}
+
+.peanut-star-icon {
+  font-size: 0.875rem;
+}
+
+.peanut-star-filled {
+  color: var(--peanut-golden);
+}
+
+.peanut-star-half {
+  color: var(--peanut-golden);
+}
+
+.peanut-star-empty {
+  color: var(--peanut-border);
+}
+
+.peanut-review-count {
+  font-size: 0.75rem;
+  color: var(--peanut-muted);
+}
+
+/* Price Section */
+.peanut-price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.peanut-current-price {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--peanut-amber);
+  margin: 0;
+}
+
+.peanut-original-price {
+  font-size: 0.875rem;
+  color: var(--peanut-muted);
+  text-decoration: line-through;
+  margin: 0;
+}
+
+/* Stock Status */
+.peanut-stock-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.peanut-stock-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.peanut-in-stock {
+  color: var(--peanut-success);
+}
+
+.peanut-in-stock .peanut-stock-indicator {
+  background: var(--peanut-success);
+}
+
+.peanut-out-of-stock {
+  color: var(--peanut-danger);
+}
+
+.peanut-out-of-stock .peanut-stock-indicator {
+  background: var(--peanut-danger);
+}
+
+/* Action Buttons */
+.peanut-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.peanut-add-cart-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--peanut-light);
+  color: var(--peanut-brown);
+  border: 2px solid var(--peanut-amber);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.peanut-add-cart-btn:hover:not(:disabled) {
+  background: var(--peanut-amber);
+  color: var(--peanut-cream);
+}
+
+.peanut-add-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.peanut-buy-now-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--peanut-amber);
+  color: var(--peanut-cream);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.peanut-buy-now-btn:hover:not(:disabled) {
+  background: var(--peanut-brown);
+}
+
+.peanut-buy-now-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.peanut-btn-loading {
+  opacity: 0.7;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+#peanut-footer {
+  background: var(--peanut-brown);
+  color: var(--peanut-cream);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.peanut-footer-text {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.peanut-footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.peanut-footer-link {
+  color: var(--peanut-golden);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.peanut-footer-link:hover {
+  color: var(--peanut-cream);
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+@media (max-width: 991.98px) {
+  #peanut-main-title {
+    font-size: 2rem;
+  }
+  
+  .peanut-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #peanut-page-header {
+    padding: 2rem 1rem;
+  }
+  
+  #peanut-main-title {
+    font-size: 1.75rem;
+  }
+  
+  .peanut-subtitle {
+    font-size: 0.9375rem;
+  }
+  
+  #peanut-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .peanut-action-buttons {
+    flex-direction: column;
+  }
+  
+  .peanut-image-wrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #peanut-main-title {
+    font-size: 1.5rem;
+  }
+  
+  .peanut-logo-icon {
+    font-size: 2rem;
+  }
+  
+  .peanut-brand-name {
+    font-size: 1.25rem;
+  }
+  
+  .peanut-product-card {
+    border-radius: 12px;
+  }
+  
+  .peanut-product-info {
+    padding: 1rem;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.peanut-text-golden {
+  color: var(--peanut-golden);
+}
+
+.peanut-text-amber {
+  color: var(--peanut-amber);
+}
+
+.peanut-text-brown {
+  color: var(--peanut-brown);
+}
+
+.peanut-bg-cream {
+  background-color: var(--peanut-cream);
+}
+
+.peanut-bg-light {
+  background-color: var(--peanut-light);
+}
+
+/* Spinner Animation */
+@keyframes peanut-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.peanut-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: peanut-spin 0.75s linear infinite;
+}

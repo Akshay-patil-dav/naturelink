@@ -72,7 +72,7 @@ for daily cooking.
 
               {/* Buttons */}
               <div id="peanut-cta-container" className="peanut-btn-group d-flex flex-wrap">
-                <button id="peanut-btn-explore" className="btn peanut-btn-primary">Explore Products</button>
+                <a href='product' id="peanut-btn-explore" className="btn peanut-btn-primary">Explore Products</a>
                 <button id="peanut-btn-watch" className="btn peanut-btn-outline">Watch Story</button>
               </div>
             </div>
