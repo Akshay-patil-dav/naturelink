@@ -18,7 +18,7 @@ export  function Homepage() {
   );
 }
 
-export function ProductPage() {
+ function ProductPage() {
   return (
     <>
       <Medicineheader />
